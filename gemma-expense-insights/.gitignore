@@ -1,0 +1,13 @@
+# Real bank data must never be committed
+data/raw/
+data/processed/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

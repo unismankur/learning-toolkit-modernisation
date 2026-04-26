@@ -1,0 +1,52 @@
+# --- Model settings ---
+model: gemma3:4b               # change to gemma3:1b for speed, gemma3:12b for quality
+ollama_url: http://localhost:11434
+temperature: 0.1               # low = deterministic
+max_tokens: 256
+
+# --- Categorisation taxonomy ---
+# Tuned for an Australian household. Adjust freely.
+categories:
+  - Groceries
+  - Dining & Takeaway
+  - Coffee
+  - Fuel & Transport
+  - Public Transport
+  - Utilities
+  - Rent & Mortgage
+  - Insurance
+  - Subscriptions
+  - Health & Medical
+  - Shopping
+  - Entertainment
+  - Travel
+  - Education
+  - Personal Care
+  - Bank Fees
+  - Income
+  - Transfers
+  - Other
+
+# --- Deterministic rules (regex, case-insensitive) applied BEFORE the LLM ---
+# Format: keyword/regex -> category
+# These cover the bulk of recurring merchants. Extend over time.
+rules:
+  "(?i)woolworths|coles|aldi|iga|costco":               Groceries
+  "(?i)mcdonald|kfc|hungry jack|domino|pizza|uber eats|menulog|doordash|sushi|thai|indian": Dining & Takeaway
+  "(?i)starbucks|gloria jean|coffee|cafe|barista":      Coffee
+  "(?i)bp |shell |7-eleven|caltex|ampol|united petrol": Fuel & Transport
+  "(?i)myki|opal|metro tasmania|public transport":      Public Transport
+  "(?i)agl|origin energy|energyaustralia|red energy|powershop|water corp|tas water|yarra valley water|melbourne water": Utilities
+  "(?i)telstra|optus|vodafone|tpg|aussie broadband|belong":                                  Utilities
+  "(?i)rent|mortgage|home loan|cba mortgage|nab home loan|westpac home":                     Rent & Mortgage
+  "(?i)nrma|aami|allianz|bupa|medibank|hcf":                                                  Insurance
+  "(?i)netflix|spotify|disney|stan|kayo|binge|amazon prime|youtube premium|apple\\.com|icloud|adobe|microsoft 365|chatgpt|claude\\.ai|notion": Subscriptions
+  "(?i)chemist|pharmacy|priceline|terry white|gp |dental|physio":                            Health & Medical
+  "(?i)kmart|target|big w|bunnings|officeworks|jb hi-fi|harvey norman|amazon\\.com\\.au":    Shopping
+  "(?i)cinema|hoyts|event cinemas|village cinemas|ticketek|moshtix":                         Entertainment
+  "(?i)qantas|virgin australia|jetstar|airbnb|booking\\.com|hotel|expedia":                  Travel
+  "(?i)university|tafe|udemy|coursera|pluralsight|book depository":                          Education
+  "(?i)hairdresser|barber|beauty|salon|nails":                                                Personal Care
+  "(?i)atm fee|account fee|overdraft|dishonour|monthly account":                              Bank Fees
+  "(?i)salary|payroll|wages|interest paid":                                                   Income
+  "(?i)transfer to|transfer from|own transfer|bpay|osko":                                     Transfers
