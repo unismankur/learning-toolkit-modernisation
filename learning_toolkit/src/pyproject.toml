@@ -1,0 +1,12 @@
+[project]
+name = "learning_toolkit"
+version = "0.0.1"
+description = "Learning toolkit for Databricks Asset Bundles"
+requires-python = ">=3.10"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = []

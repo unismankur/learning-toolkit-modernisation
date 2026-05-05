@@ -1,0 +1,15 @@
+# Minimal job for learning_toolkit - no dependencies, serverless default.
+
+resources:
+  jobs:
+    sample_job:
+      name: sample_job
+
+      email_notifications:
+        on_failure:
+          - unismankur@gmail.com
+
+      tasks:
+        - task_key: notebook_task
+          notebook_task:
+            notebook_path: ../src/sample_notebook.ipynb

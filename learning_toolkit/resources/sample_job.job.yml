@@ -1,22 +1,24 @@
-# The main job for learning_toolkit.
+# Bronze ingest job — parameterised via bundle variables.
+
 resources:
   jobs:
     sample_job:
       name: sample_job
-
-      trigger:
-        pause_status: UNPAUSED
 
       email_notifications:
         on_failure:
           - unismankur@gmail.com
 
       tasks:
-        - task_key: notebook_task
+        - task_key: bronze_ingest
           notebook_task:
             notebook_path: ../src/sample_notebook.ipynb
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+          environment_key: serverless_env
 
       environments:
-        - environment_key: default
+        - environment_key: serverless_env
           spec:
-            environment_version: "4"
+            client: "2"
