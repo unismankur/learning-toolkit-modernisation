@@ -1,0 +1,17 @@
+pipeline_metadata:
+  name: financial_ingestion_pipeline
+  description: A pipeline to learn using Gemini.
+  source: "ndc_simulated"""
+  target_system: "ada_simulated"
+  version: 1.0.0
+
+data_paths: 
+  source_file: "mock_transactions.csv"
+  target_directory: "gold_business_mart/"
+
+parameters:
+  batch_size: 1000
+  learning_rate: 0.01
+  num_epochs: 10
+  filter_category: "Finance"
+  min_transaction_value: 100.0

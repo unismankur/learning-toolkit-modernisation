@@ -1,0 +1,4 @@
+transaction_id,customer_id,amount,category
+TXN001,C100,150.50,Retail
+TXN002,C200,2400.00,Finance
+TXN003,C100,45.00,Retail
