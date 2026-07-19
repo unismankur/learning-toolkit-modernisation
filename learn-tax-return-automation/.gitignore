@@ -1,0 +1,17 @@
+# Block any document types from ever being committed
+*.pdf
+*.docx
+*.xlsx
+*.csv
+*.txt
+!README.md
+!requirements.txt
+
+# Block anything that looks like a tax/output folder if one is ever created here by mistake
+raw/
+sanitised/
+Tax-agents-perusal/
+TaxWorkspace/
+
+config.json
+*_scan_audit_log.csv
